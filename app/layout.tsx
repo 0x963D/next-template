@@ -39,7 +39,7 @@ export default function RootLayout({ children }: RootLayoutProps): JSX.Element {
           <ThemeProvider attribute='class' defaultTheme='system' enableSystem>
             <div className='relative flex min-h-screen flex-col'>
               <HeaderView />
-              <div className='flex-1'>{children}</div>
+              <div className='overflow-hidden pt-16 lg:pt-20 flex-1'>{children}</div>
             </div>
             <TailwindIndicator />
           </ThemeProvider>
