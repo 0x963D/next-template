@@ -1,5 +1,8 @@
+"use client"
+
 import Link from "next/link"
-import { signIn, useSession } from "next-auth/react"
+
+// import { signIn, useSession } from "next-auth/react"
 
 import { siteConfig } from "@/config/site"
 import { Button } from "@/components/ui/button"
@@ -8,10 +11,11 @@ import { ThemeToggle } from "@/components/common/theme-toggle"
 import { MainNav } from "@/components/views/header/mainNav"
 
 import { TeamSwitcher } from "./teamSwitcher"
-import { UserNav } from "./userNav"
+
+// import { UserNav } from "./userNav"
 
 const HeaderView = (): JSX.Element => {
-  const { data: session } = useSession()
+  // const { data: session } = useSession()
   return (
     <header className='sticky top-0 z-40 w-full border-b bg-background'>
       <div className='border-b'>
@@ -23,27 +27,27 @@ const HeaderView = (): JSX.Element => {
           <MainNav items={siteConfig.mainNav} />
           <div className='ml-auto flex items-center space-x-4 '>
             <ThemeToggle />
-            {session !== null ? (
+            {/* {session !== null ? (
               <UserNav />
-            ) : (
-              <div className='ml-auto flex items-center space-x-4 '>
-                {/* <Link href='/auth/login'> */}
-                <Button
-                  variant={"outline"}
-                  onClick={() => {
-                    signIn().catch((err) => {
-                      console.log(err)
-                    })
-                  }}
-                >
-                  Log In
-                </Button>
-                {/* </Link> */}
-                <Link href='/signup'>
-                  <Button>Sign up</Button>
-                </Link>
-              </div>
-            )}
+            ) : ( */}
+            <div className='ml-auto flex items-center space-x-4 '>
+              {/* <Link href='/auth/login'> */}
+              <Button
+                variant={"outline"}
+                // onClick={() => {
+                //   signIn().catch((err) => {
+                //     console.log(err)
+                //   })
+                // }}
+              >
+                Log In
+              </Button>
+              {/* </Link> */}
+              <Link href='/signup'>
+                <Button>Sign up</Button>
+              </Link>
+            </div>
+            {/* )} */}
           </div>
         </div>
       </div>

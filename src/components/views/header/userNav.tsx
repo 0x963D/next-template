@@ -1,6 +1,8 @@
-import { signOut, useSession } from "next-auth/react"
+"use client"
 
-import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar"
+// import type Error from "next/error"
+// import { signOut, useSession } from "next-auth/react"
+import { Avatar, AvatarFallback } from "@/components/ui/avatar"
 import { Button } from "@/components/ui/button"
 import {
   DropdownMenu,
@@ -12,20 +14,19 @@ import {
   DropdownMenuShortcut,
   DropdownMenuTrigger
 } from "@/components/ui/dropdown-menu"
-import type Error from "next/error"
 
 const UserNav = (): JSX.Element => {
-  const { data: session } = useSession()
+  // const { data: session } = useSession()
 
   return (
     <DropdownMenu>
       <DropdownMenuTrigger asChild>
         <Button variant='ghost' className='relative h-8 w-8 rounded-full'>
           <Avatar className='h-8 w-8'>
-            <AvatarImage
+            {/* <AvatarImage
               src={session?.user?.image !== null ? session?.user?.image : "/avatars/01.png"}
               alt='@profilePicture'
-            />
+            /> */}
             <AvatarFallback>SC</AvatarFallback>
           </Avatar>
         </Button>
@@ -33,8 +34,8 @@ const UserNav = (): JSX.Element => {
       <DropdownMenuContent className='w-56' align='end' forceMount>
         <DropdownMenuLabel className='font-normal'>
           <div className='flex flex-col space-y-1'>
-            <p className='text-sm font-medium leading-none'>{session?.user?.name}</p>
-            <p className='text-xs leading-none text-muted-foreground'>{session?.user?.email}</p>
+            {/* <p className='text-sm font-medium leading-none'>{session?.user?.name}</p>
+            <p className='text-xs leading-none text-muted-foreground'>{session?.user?.email}</p> */}
           </div>
         </DropdownMenuLabel>
         <DropdownMenuSeparator />
@@ -55,15 +56,15 @@ const UserNav = (): JSX.Element => {
         </DropdownMenuGroup>
         <DropdownMenuSeparator />
         <DropdownMenuItem
-          onClick={() => {
-            signOut()
-              .then(() => {
-                window.location.reload()
-              })
-              .catch((error: Error) => {
-                console.error("Sign out error", error)
-              })
-          }}
+        // onClick={() => {
+        //   signOut()
+        //     .then(() => {
+        //       window.location.reload()
+        //     })
+        //     .catch((error: Error) => {
+        //       console.error("Sign out error", error)
+        //     })
+        // }}
         >
           Log out
           <DropdownMenuShortcut>⇧⌘Q</DropdownMenuShortcut>
