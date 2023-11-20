@@ -1,11 +1,8 @@
-import { PrismaClient, type Prisma } from "@prisma/client"
+import { PrismaClient } from "@prisma/client"
 
 const prisma = new PrismaClient()
 
-async function main(): Promise<void> {
-
-
-}
+async function main(): Promise<void> {}
 
 main()
   .then(async () => {
