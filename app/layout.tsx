@@ -4,10 +4,9 @@ import { type Metadata } from "next"
 
 import { siteConfig } from "@/config/site"
 import { fontSans } from "@/lib/fonts"
-import { cn } from "@/lib/utils"
+import { cn } from "@/lib/shadcn"
+import AppProviders from "@/components/common/providers"
 import { TailwindIndicator } from "@/components/common/tailwind-indicator"
-import { ThemeProvider } from "@/components/common/theme-provider"
-import { HeaderView } from "@/components/views/header"
 
 export const metadata: Metadata = {
   title: {
@@ -15,10 +14,6 @@ export const metadata: Metadata = {
     template: `%s - ${siteConfig.name}`
   },
   description: siteConfig.description,
-  // themeColor: [
-  //   { media: "(prefers-color-scheme: light)", color: "white" },
-  //   { media: "(prefers-color-scheme: dark)", color: "black" },
-  // ],
   icons: {
     icon: "/favicons/favicon.ico",
     shortcut: "/favicons/favicon-16x16.png",
@@ -36,13 +31,12 @@ export default function RootLayout({ children }: RootLayoutProps): JSX.Element {
       <html lang='en' suppressHydrationWarning>
         <head />
         <body className={cn("min-h-screen bg-background font-sans antialiased", fontSans.variable)}>
-          <ThemeProvider attribute='class' defaultTheme='system' enableSystem>
+          <AppProviders>
             <div className='relative flex min-h-screen flex-col'>
-              <HeaderView />
               <div className='overflow-hidden pt-16 lg:pt-20 flex-1'>{children}</div>
             </div>
             <TailwindIndicator />
-          </ThemeProvider>
+          </AppProviders>
         </body>
       </html>
     </>

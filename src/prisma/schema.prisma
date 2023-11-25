@@ -59,3 +59,12 @@ model VerificationToken {
 
   @@unique([identifier, token])
 }
+
+model OneTimePasswords {
+  id        Int      @id @unique @default(autoincrement())
+  uuid      String   @unique @default(dbgenerated("gen_random_uuid()")) @db.Uuid
+  email     String
+  otp       String   @unique
+  expiresAt Decimal  @default(0) @db.Decimal(12, 0)
+  createdAt DateTime @default(now())
+}
