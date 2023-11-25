@@ -1,20 +1,13 @@
 import { type Metadata } from "next"
 
-import Section from "@/components/common/section"
-import { SignInView } from "@/components/views/sign-in"
+import SignInView from "@/components/views/sign-in"
 
 export const metadata: Metadata = {
-  title: "New Yolk - Sign in"
+  title: "New Yolk - Sign In"
 }
 
 const SignInPage = (): JSX.Element => {
-  return (
-    <Section>
-      <div className='items-center justify-center flex'>
-        <SignInView />
-      </div>
-    </Section>
-  )
+  return <SignInView />
 }
 
 export default SignInPage
