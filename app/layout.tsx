@@ -7,6 +7,11 @@ import { fontSans } from "@/lib/fonts"
 import { cn } from "@/lib/shadcn"
 import AppProviders from "@/components/common/providers"
 import { TailwindIndicator } from "@/components/common/tailwind-indicator"
+import Toast from "@/components/common/toast"
+
+import "react-toastify/dist/ReactToastify.css"
+
+import { HeaderView } from "@/components/views/header"
 
 export const metadata: Metadata = {
   title: {
@@ -32,8 +37,10 @@ export default function RootLayout({ children }: RootLayoutProps): JSX.Element {
         <head />
         <body className={cn("min-h-screen bg-background font-sans antialiased", fontSans.variable)}>
           <AppProviders>
+            <HeaderView />
             <div className='relative flex min-h-screen flex-col'>
-              <div className='overflow-hidden pt-16 lg:pt-20 flex-1'>{children}</div>
+              <Toast />
+              <div className='overflow-hidden flex-1'>{children}</div>
             </div>
             <TailwindIndicator />
           </AppProviders>

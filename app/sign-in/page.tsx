@@ -9,7 +9,7 @@ export const metadata: Metadata = {
 
 const SignInPage = (): JSX.Element => {
   return (
-    <Section crosses>
+    <Section>
       <div className='items-center justify-center flex'>
         <SignInView />
       </div>

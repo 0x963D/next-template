@@ -8,7 +8,7 @@ export const metadata: Metadata = {
 }
 const SignUpPage = (): JSX.Element => {
   return (
-    <Section crosses>
+    <Section>
       <div className='items-center justify-center flex'>
         <SignUpView />
       </div>

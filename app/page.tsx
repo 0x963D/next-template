@@ -1,5 +1,6 @@
 import { type Metadata } from "next"
 
+import Section from "@/components/common/section"
 import HomeView from "@/components/views/home"
 
 export const metadata: Metadata = {
@@ -7,7 +8,11 @@ export const metadata: Metadata = {
 }
 
 const HomePage = (): React.JSX.Element => {
-  return <HomeView />
+  return (
+    <Section>
+      <HomeView />
+    </Section>
+  )
 }
 
 export default HomePage
